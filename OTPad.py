@@ -6,6 +6,8 @@ ciphertext = ""
 #print(ciphertext)
 
 def decrypt(ciphertext, key):
+    if len(key) != len(ciphertext):
+        raise ValueError
     plaintext = ""
     for c, k in zip(ciphertext, key):
         plaintext += chr(ord(c) ^ ord(k))
